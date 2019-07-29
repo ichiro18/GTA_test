@@ -10,7 +10,8 @@
     "build:dev": "./node_modules/.bin/webpack --config config/webpack/webpack.dev.config.js",
     "build:prod": "./node_modules/.bin/webpack --config config/webpack/webpack.prod.config.js",
     "build:doc": "./node_modules/.bin/webpack --config config/webpack/webpack.doc.config.js",
-    "lint:js": "eslint src/**/*.(vue|js)"
+    "lint:js": "eslint --ext .vue,.js src/**",
+    "lint:fix": "eslint --ext .vue,.js src/** --fix"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",
