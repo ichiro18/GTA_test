@@ -54,7 +54,7 @@ const devPlugins = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"',
-        BASE_URL: '"/whoer_test/"',
+        BASE_URL: '"/GTA_test/"',
       },
     }),
     new webpack.ProgressPlugin(),

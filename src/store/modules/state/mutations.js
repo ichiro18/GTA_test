@@ -14,6 +14,9 @@ export default {
   setFuel(state, message) {
     state.car.fuel = message;
   },
+  setMoney(state, message) {
+    state.user.money = message;
+  },
   toggleHeadlight(state, message) {
     state.car.headlights = !!message;
   }

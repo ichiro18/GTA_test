@@ -17,5 +17,5 @@ export default {
     },
     money: 13582
   },
-  time: undefined
+  time: new Date(2019, 7, 30, 18, 30)
 };
