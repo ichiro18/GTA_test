@@ -1,13 +1,13 @@
 <template>
   <div class="car-control">
     <div class="car-state">
-      <div class="state-field doors" v-if="closedDoors !== undefined">
+      <div class="state-field icon doors" v-if="closedDoors !== undefined">
         <i :class="closeDoorsClassName"></i>
       </div>
-      <div class="state-field hp" v-if="hp !== undefined">
+      <div class="state-field icon hp" v-if="hp !== undefined">
         <i :class="hpClassName"></i>
       </div>
-      <div class="state-field headlights" v-if="headlights !== undefined">
+      <div class="state-field icon headlights" v-if="headlights !== undefined">
         <i :class="headlightsClassName"></i>
       </div>
       <div class="state-field speed" v-if="speed !== undefined">
@@ -18,7 +18,7 @@
         <i class="fas fa-gas-pump"></i>
       </div>
     </div>
-    <div class="fuel-level" v-if="fuel !== undefined">
+    <div :class="fuelLevelClassName" v-if="fuel !== undefined">
       <div class="level" v-for="key in fuelLevel" :key="key"></div>
       <div class="level-spacer"></div>
     </div>
@@ -82,6 +82,13 @@ export default {
     },
     fuelLevel() {
       return Math.floor(this.fuel / 10);
+    },
+    fuelLevelClassName() {
+      let name = "fuel-level";
+      if (this.fuelLevel <= 3) {
+        name += " error";
+      }
+      return name;
     }
   }
 };
@@ -101,7 +108,13 @@ export default {
     align-items: center;
     color: $white-primary-text-color;
     .state-field {
-      margin: 0 10px;
+      margin: 0 5px;
+      &.icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20px;
+      }
       &:last-child {
         margin-right: 0;
       }
@@ -142,6 +155,11 @@ export default {
       width: 30px;
       height: 5px;
       background-color: $primary-color;
+    }
+    &.error {
+      .level {
+        background-color: $error-color;
+      }
     }
   }
 }
