@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
-    <data-sidebar-control @toggle-state-control="toggleStateControl" />
-    <stateControl v-if="stateControlEnabled" />
+    <data-sidebar-control />
+    <stateControl />
   </div>
 </template>
 <script>
@@ -13,17 +13,6 @@ export default {
   components: {
     DataSidebarControl: DataSidebarControl,
     StateControl: StateControl
-  },
-  data() {
-    return {
-      stateControl: null,
-      stateControlEnabled: true
-    };
-  },
-  methods: {
-    toggleStateControl(e) {
-      this.stateControlEnabled = e;
-    }
   }
 };
 </script>

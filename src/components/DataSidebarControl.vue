@@ -6,7 +6,6 @@
         id="stateControlEnabled"
         type="checkbox"
         v-model="stateControlEnabled"
-        v-on:change="toggleStateControlEnabled"
       />
       <label for="stateControlEnabled">Активность GUI</label>
     </div>
@@ -14,16 +13,21 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "DataSidebarControl",
-  data() {
-    return {
-      stateControlEnabled: true
-    };
-  },
-  methods: {
-    toggleStateControlEnabled() {
-      this.$emit("toggle-state-control", this.stateControlEnabled);
+  computed: {
+    ...mapGetters({
+      controlEnabled: "state/isEnabled"
+    }),
+    stateControlEnabled: {
+      get() {
+        return this.controlEnabled;
+      },
+      set(value) {
+        this.$store.commit("state/setEnabled", !!value);
+      }
     }
   }
 };
@@ -40,6 +44,7 @@ export default {
   left: 30px;
   background-color: white;
   padding: 15px;
+
   .title {
     text-align: center;
   }
