@@ -108,12 +108,12 @@ export default {
     align-items: center;
     color: $white-primary-text-color;
     .state-field {
-      margin: 0 5px;
+      margin: 0 0.301vw;
       &.icon {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 20px;
+        width: 1.205vw;
       }
       &:last-child {
         margin-right: 0;
@@ -121,19 +121,19 @@ export default {
     }
     .speed {
       .speed-value {
-        font-size: 2rem;
-        letter-spacing: -0.1rem;
+        font-size: 2em;
+        letter-spacing: -0.1em;
       }
       .speed-unit {
-        font-size: 0.7rem;
+        font-size: 0.7em;
       }
     }
     .fuel-icon {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 30px;
-      height: 45px;
+      width: 1.808vw;
+      height: 4.797vh;
       background-color: $primary-color;
       color: $dark-primary-text-color;
     }
@@ -141,19 +141,19 @@ export default {
   .fuel-level {
     display: flex;
     justify-content: flex-end;
-    height: 5px;
+    height: 0.53vh;
     .level {
-      width: 15px;
+      width: 0.904vw;
       height: 100%;
-      margin-right: 2px;
+      margin-right: 0.12vw;
       background-color: $primary-color;
       &:last-child {
         margin-right: 0;
       }
     }
     .level-spacer {
-      width: 30px;
-      height: 5px;
+      width: 1.808vw;
+      height: 0.53vh;
       background-color: $primary-color;
     }
     &.error {

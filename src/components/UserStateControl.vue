@@ -41,16 +41,16 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40px;
+    height: 4.264vh;
     color: $white-primary-text-color;
-    margin-right: 10px;
+    margin-right: 0.602vw;
     &.icon {
       i {
-        margin-right: 5px;
+        margin-right: 0.3vw;
       }
     }
     &:first-child {
-      margin-left: 10px;
+      margin-left: 0.602vw;
     }
   }
 }
