@@ -24,7 +24,7 @@ $ yarn run dev
 Open [localhost:8080](http://localhost:8080)
 
 ## Demo
-View demo [here](http://localhost:8080)
+View demo [here](https://ichiro18.github.io/GTA_test/)
 
 ## Built With
 - [VueJS](https://vuejs.org/)
