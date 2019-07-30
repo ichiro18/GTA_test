@@ -1,9 +1,19 @@
 <template>
-  <div class="wrapper"></div>
+  <div class="wrapper">
+    <data-sidebar-control />
+    <stateControl />
+  </div>
 </template>
 <script>
+import DataSidebarControl from "@project_src/components/DataSidebarControl.vue";
+import StateControl from "@project_src/components/StateControl.vue";
+
 export default {
-  name: "App"
+  name: "App",
+  components: {
+    DataSidebarControl: DataSidebarControl,
+    StateControl: StateControl
+  }
 };
 </script>
 <style lang="scss">
