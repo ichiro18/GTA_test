@@ -36,7 +36,7 @@ export default {
 .user-control {
   display: flex;
   justify-content: flex-end;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.45);
   .state-field {
     display: flex;
     justify-content: center;
@@ -53,5 +53,11 @@ export default {
       margin-left: 0.602vw;
     }
   }
+  /*
+   Патроны [TTNorms] Bold 18pt
+   Всего [TTNorms] Medium 12pt
+   Деньги [TTNorms] Medium 18pt
+   Время [TTNorms] Medium 18pt
+   */
 }
 </style>

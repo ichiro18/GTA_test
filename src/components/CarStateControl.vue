@@ -100,7 +100,7 @@ export default {
 .car-control {
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.45);
   .car-state {
     display: flex;
     width: 100%;
@@ -120,12 +120,13 @@ export default {
       }
     }
     .speed {
+      /*font-family: DINAlternate;*/
       .speed-value {
-        font-size: 2em;
+        font-size: 2em; // 36pt
         letter-spacing: -0.1em;
       }
       .speed-unit {
-        font-size: 0.7em;
+        font-size: 0.7em; // 10pt
       }
     }
     .fuel-icon {
