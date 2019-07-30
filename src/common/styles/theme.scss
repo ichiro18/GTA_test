@@ -47,3 +47,13 @@ textarea:focus {
   outline: none;
   border: 1px solid $primary-color;
 }
+
+.error {
+  color: $error-color;
+}
+.success {
+  color: $success-color;
+}
+.default {
+  color: $primary-color;
+}
