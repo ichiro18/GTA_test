@@ -42,6 +42,11 @@
       <label for="carSpeed">Скорость</label>
       <input id="carSpeed" type="number" v-model.number="carSpeed" />
     </div>
+    <h4>Состояние пользователя</h4>
+    <div class="input-field">
+      <label for="userMoney">Деньги</label>
+      <input id="userMoney" type="number" min="0" v-model.number="userMoney" />
+    </div>
   </div>
 </template>
 
@@ -53,7 +58,8 @@ export default {
   computed: {
     ...mapGetters({
       controlEnabled: "state/isEnabled",
-      car: "state/getCarState"
+      car: "state/getCarState",
+      user: "state/getUserState"
     }),
     stateControlEnabled: {
       get() {
@@ -102,6 +108,14 @@ export default {
       },
       set(value) {
         this.$store.commit("state/setSpeed", value);
+      }
+    },
+    userMoney: {
+      get() {
+        return this.user.money;
+      },
+      set(value) {
+        this.$store.commit("state/setMoney", value);
       }
     }
   }
