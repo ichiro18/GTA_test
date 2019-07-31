@@ -2,20 +2,23 @@
   <div class="car-control">
     <div class="car-state">
       <div class="state-field icon doors" v-if="closedDoors !== undefined">
-        <i :class="closeDoorsClassName"></i>
+        <svg-icon icon-class="lock" :class="closeDoorsClassName" />
       </div>
       <div class="state-field icon hp" v-if="hp !== undefined">
-        <i :class="hpClassName"></i>
+        <svg-icon icon-class="crash" :class="hpClassName" />
       </div>
       <div class="state-field icon headlights" v-if="headlights !== undefined">
-        <i :class="headlightsClassName"></i>
+        <svg-icon
+          :icon-class="headlightsProps.name"
+          :class="headlightsProps.class"
+        />
       </div>
       <div class="state-field speed" v-if="speed !== undefined">
         <span class="speed-value">{{ this.speed }}</span>
         <span class="speed-unit">км/ч</span>
       </div>
-      <div class="state-field fuel-icon">
-        <i class="fas fa-gas-pump"></i>
+      <div :class="['state-field fuel-icon', fuelLevel > 3 ? '' : 'error']">
+        <svg-icon icon-class="gas" />
       </div>
     </div>
     <div :class="fuelLevelClassName" v-if="fuel !== undefined">
@@ -26,8 +29,19 @@
 </template>
 
 <script>
+import SVGIcon from "@project_src/utils/SVGIcon.vue";
+// Import icons
+import "@project_src/common/images/icons/SVG/lock.svg";
+import "@project_src/common/images/icons/SVG/crash.svg";
+import "@project_src/common/images/icons/SVG/light-on.svg";
+import "@project_src/common/images/icons/SVG/light-off.svg";
+import "@project_src/common/images/icons/SVG/gas.svg";
+
 export default {
   name: "CarStateControl",
+  components: {
+    svgIcon: SVGIcon
+  },
   props: {
     closedDoors: {
       type: Boolean
@@ -47,12 +61,10 @@ export default {
   },
   computed: {
     closeDoorsClassName() {
-      let name = "fas";
+      let name = "svg";
       if (this.closedDoors) {
-        name += " fa-lock";
         name += " success";
       } else {
-        name += " fa-lock-open";
         name += " error";
       }
       return name;
@@ -71,14 +83,19 @@ export default {
       }
       return name;
     },
-    headlightsClassName() {
-      let name = "far fa-lightbulb";
+    headlightsProps() {
+      let prop = {
+        name: "",
+        class: "svg"
+      };
       if (this.headlights) {
-        name += " error";
+        prop.name = "light-off";
+        prop.class += " error";
       } else {
-        name += " success";
+        prop.name = "light-on";
+        prop.class += " success";
       }
-      return name;
+      return prop;
     },
     fuelLevel() {
       return Math.floor(this.fuel / 10);
@@ -110,33 +127,48 @@ export default {
     .state-field {
       margin: 0 0.301vw;
       &.icon {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 1.205vw;
+        color: $primary-color;
+        font-size: 1.5em;
       }
       &:last-child {
         margin-right: 0;
       }
     }
     .speed {
-      /*font-family: DINAlternate;*/
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 0.53vh;
+      font-family: DIN_Alternate, Roboto, Arial, sans-serif;
+      margin-left: 1.3vw;
+      font-size: 1em;
       .speed-value {
-        font-size: 2em; // 36pt
-        letter-spacing: -0.1em;
+        display: inline-flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        font-size: 3em;
+        letter-spacing: -0.05em;
+        line-height: 6vh;
+        height: 6.396vh;
+        width: 2.86vw;
+        padding-right: 0.1em;
       }
       .speed-unit {
-        font-size: 0.7em; // 10pt
+        font-size: 0.836em; // 10pt
+        line-height: 3vh;
       }
     }
     .fuel-icon {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 1.808vw;
-      height: 4.797vh;
+      width: 1.208vw;
+      height: 100%;
+      font-size: 1em;
       background-color: $primary-color;
       color: $dark-primary-text-color;
+      &.error {
+        background-color: $error-color;
+      }
     }
   }
   .fuel-level {
@@ -153,12 +185,13 @@ export default {
       }
     }
     .level-spacer {
-      width: 1.808vw;
+      width: 1.208vw;
       height: 0.53vh;
       background-color: $primary-color;
     }
     &.error {
-      .level {
+      .level,
+      .level-spacer {
         background-color: $error-color;
       }
     }

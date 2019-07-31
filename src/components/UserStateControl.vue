@@ -1,19 +1,28 @@
 <template>
   <div class="user-control">
     <div class="state-field icon money" v-if="money !== undefined">
-      <i class="fas fa-wallet"></i>
+      <svg-icon icon-class="wallet" />
       <span class="value">${{ money }}</span>
     </div>
     <div class="state-field icon time" v-if="time !== undefined">
-      <i class="far fa-clock"></i>
+      <svg-icon icon-class="time" />
       <span class="value">{{ serverTime }}</span>
     </div>
   </div>
 </template>
 
 <script>
+import SVGIcon from "@project_src/utils/SVGIcon.vue";
+// Import icons
+import "@project_src/common/images/icons/SVG/time.svg";
+import "@project_src/common/images/icons/SVG/wallet.svg";
+import "@project_src/common/images/icons/SVG/ammo.svg";
+
 export default {
   name: "UserStateControl",
+  components: {
+    svgIcon: SVGIcon
+  },
   props: {
     money: {
       type: Number
@@ -37,6 +46,7 @@ export default {
   display: flex;
   justify-content: flex-end;
   background-color: rgba(0, 0, 0, 0.45);
+  padding: 0.53vh;
   .state-field {
     display: flex;
     justify-content: center;
@@ -44,8 +54,11 @@ export default {
     height: 4.264vh;
     color: $white-primary-text-color;
     margin-right: 0.602vw;
+    font-family: "TT Norms", Roboto, Arial, sans-serif;
+    font-size: 1.2em;
     &.icon {
-      i {
+      .svg-icon {
+        font-size: 1.5em;
         margin-right: 0.3vw;
       }
     }

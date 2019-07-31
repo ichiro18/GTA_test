@@ -2,9 +2,19 @@
 $roboto-font-path: "~roboto-fontface/fonts/";
 @import "~roboto-fontface/css/roboto/sass/roboto-fontface";
 
-// ===========================================    Fontawesome    ===========================================
-$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
-@import "~@fortawesome/fontawesome-free/scss/fontawesome";
-@import "~@fortawesome/fontawesome-free/scss/solid";
-@import "~@fortawesome/fontawesome-free/scss/regular";
-@import "~@fortawesome/fontawesome-free/scss/brands";
+// ===========================================    DIN Alternate    ===========================================
+@font-face {
+  font-family: DIN_Alternate;
+  src: url("../fonts/DIN Alternate/DIN Alternate.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: DIN_Alternate;
+  src: url("../fonts/DIN Alternate/DIN Alternate Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+// ===========================================    TTNorms    ===========================================
+@import "../fonts/TTNorms/stylesheet.css";
