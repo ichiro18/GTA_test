@@ -32,7 +32,7 @@ const devConfig = {
   output: {
     path: PATH.dist,
     filename: "[name].js",
-    publicPath: "/whoer_test/"
+    publicPath: "/GTA_test/"
   },
   resolve: {
     extensions: ['.js', '.json'],

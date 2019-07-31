@@ -36,10 +36,11 @@ For transparency into the release cycle and in striving to maintain backward com
 For more information on SemVer, please visit http://semver.org/.
 
 ## TODO
-- [ ] VueJS SPA skeleton
-- [ ] Control active
-- [ ] Car state
-- [ ] User state
+- [X] VueJS SPA skeleton
+- [X] Control active
+- [X] Car state
+- [X] User state
+- [X] Weapon state
 
 ## Authors
 Authors
