@@ -19,5 +19,17 @@ export default {
   },
   toggleHeadlight(state, message) {
     state.car.headlights = !!message;
+  },
+  toggleArmed(state, message) {
+    state.user.armed = !!message;
+  },
+  setClipSize(state, message) {
+    state.user.weapon.clipSize = message;
+  },
+  setAmmo(state, message) {
+    state.user.weapon.ammo = message;
+  },
+  setWeaponType(state, message) {
+    state.user.weapon.type = message;
   }
 };
