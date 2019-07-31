@@ -8,9 +8,9 @@ export default {
     speed: 120
   },
   user: {
-    armed: false,
+    armed: true,
     weapon: {
-      type: "gun",
+      type: "gun1",
       img: null,
       clipSize: 17,
       ammo: 143

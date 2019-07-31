@@ -47,6 +47,33 @@
       <label for="userMoney">Деньги</label>
       <input id="userMoney" type="number" min="0" v-model.number="userMoney" />
     </div>
+    <div class="input-field">
+      <input id="userArmed" type="checkbox" v-model="userArmed" />
+      <label for="userArmed">Вооружен</label>
+    </div>
+    <div class="input-field">
+      <select v-model="weaponType">
+        <option v-for="(item, key) in weapons" :key="key"> {{ item }}</option>
+      </select>
+    </div>
+    <div class="input-field">
+      <label for="weaponClip">Обойма</label>
+      <input
+        id="weaponClip"
+        type="number"
+        min="0"
+        v-model.number="weaponClipSize"
+      />
+    </div>
+    <div class="input-field">
+      <label for="weaponAmmo">Патроны</label>
+      <input
+        id="weaponAmmo"
+        type="number"
+        min="0"
+        v-model.number="weaponAmmo"
+      />
+    </div>
   </div>
 </template>
 
@@ -55,6 +82,27 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "DataSidebarControl",
+  data() {
+    return {
+      weapons: [
+        "gun1",
+        "gun2",
+        "gun3",
+        "gun4",
+        "gun5",
+        "gun6",
+        "gun7",
+        "gun8",
+        "gun9",
+        "gun10",
+        "gun11",
+        "gun12",
+        "gun13",
+        "gun14",
+        "gun15"
+      ]
+    };
+  },
   computed: {
     ...mapGetters({
       controlEnabled: "state/isEnabled",
@@ -116,6 +164,38 @@ export default {
       },
       set(value) {
         this.$store.commit("state/setMoney", value);
+      }
+    },
+    weaponClipSize: {
+      get() {
+        return this.user.weapon.clipSize;
+      },
+      set(value) {
+        this.$store.commit("state/setClipSize", value);
+      }
+    },
+    weaponAmmo: {
+      get() {
+        return this.user.weapon.ammo;
+      },
+      set(value) {
+        this.$store.commit("state/setAmmo", value);
+      }
+    },
+    weaponType: {
+      get() {
+        return this.user.weapon.type;
+      },
+      set(value) {
+        this.$store.commit("state/setWeaponType", value);
+      }
+    },
+    userArmed: {
+      get() {
+        return this.user.armed;
+      },
+      set(value) {
+        this.$store.commit("state/toggleArmed", !!value);
       }
     }
   }

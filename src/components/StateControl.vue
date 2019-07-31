@@ -48,9 +48,9 @@ export default {
   align-items: flex-end;
   position: absolute;
   bottom: 3vh;
-  right: 2vh;
+  right: 2vw;
   .control-part {
-    margin-bottom: 15px;
+    margin-bottom: 1.599vh;
     flex: 0 1 0;
     &:last-child {
       margin-bottom: 0;

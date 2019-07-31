@@ -19,13 +19,13 @@
 
 /* Typography */
 html {
-  font-size: 16px;
+  font-size: 1em;
 }
 body {
   color: $dark-primary-text-color;
   font-family: $typography-font-family;
   font-weight: map_get($typography-font-weight-values, regular);
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 /* Clear */
